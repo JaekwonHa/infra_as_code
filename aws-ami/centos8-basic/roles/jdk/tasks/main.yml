@@ -1,0 +1,10 @@
+---
+
+- name: Install JDK 11
+  shell: amazon-linux-extras install java-openjdk11
+  become: yes
+
+- name: correct java version selected
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-11-openjdk-11.0.5.10-0.amzn2.x86_64/bin/java

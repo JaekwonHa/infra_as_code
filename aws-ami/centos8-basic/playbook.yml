@@ -1,0 +1,8 @@
+---
+
+- name: Amazon Linux based Java AMI
+  hosts: all
+  roles:
+    - common
+    - jdk
+    - nginx
