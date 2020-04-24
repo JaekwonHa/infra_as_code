@@ -1,0 +1,13 @@
+---
+
+- name: Set timezone to Asia/Seoul
+  timezone:
+    name: Asia/Seoul
+  become: yes
+
+- include: install-packages.yml
+
+- include: install-jdk.yml
+
+- include: install-gradle.yml
+  become: yes

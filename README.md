@@ -7,4 +7,4 @@
 ## 목차
 
 * [Packer, Ansible 기반의 AMI(Amazon Machine Image) 생성](aws-ami/)
-
+* [Ansible, Vagrant 기반의 Jenkins 서버 생성](jenkins/)

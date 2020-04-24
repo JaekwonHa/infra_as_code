@@ -1,0 +1,7 @@
+---
+
+- name: Start to install jenkins
+  hosts: all
+  roles:
+    - common
+    - install-jenkins

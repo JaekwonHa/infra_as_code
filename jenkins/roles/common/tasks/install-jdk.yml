@@ -1,0 +1,13 @@
+---
+
+- name: Install packages
+  yum:
+    name:
+      - "{{ jdk_package }}"
+    state: present
+  become: yes
+
+- name: correct java version selected
+  alternatives:
+    name: java
+    path: "{{ jdk_path }}"
