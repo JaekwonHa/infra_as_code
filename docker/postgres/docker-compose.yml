@@ -1,0 +1,26 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:11
+    container_name: postgres
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+      - TZ=Asia/Seoul
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pg_admin
+    volumes:
+      - ./pgadmin/data:/var/lib/pgadmin
+    ports:
+      - '5555:80'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=password
