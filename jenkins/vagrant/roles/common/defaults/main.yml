@@ -1,0 +1,15 @@
+---
+gradle_version: 6.0.1
+gradle_binary: "gradle-{{ gradle_version }}-all.zip"
+gradle_checksum: sha256:6f6cfdbb12a577c3845522a1c7fbfe1295ea05d87edabedd4e23fd2bf02b88b1
+gradle_download: "/tmp/{{ gradle_binary }}"
+gradle_download_url: "https://services.gradle.org/distributions/{{ gradle_binary }}"
+gradle_base_dir: /usr/local/share/
+gradle_extract_dir:  "gradle-{{ gradle_version }}"
+gradle_link: /usr/local/bin/gradle
+
+#jdk_package: java-11-openjdk-devel.x86_64
+#jdk_path: /usr/lib/jvm/java-11-openjdk-11.0.5.10-0.el8_0.x86_64/bin/java
+
+jdk_package: java-1.8.0-openjdk-devel.x86_64
+jdk_path: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el8_2.x86_64/bin/java

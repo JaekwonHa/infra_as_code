@@ -1,0 +1,38 @@
+---
+
+- name: Install jenkins repositories
+  get_url:
+    url: "{{ jenkins_repo_url }}"
+    dest: /etc/yum.repos.d/jenkins.repo
+  become: yes
+
+- name: Import Jenkins Key
+  rpm_key:
+    state: present
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+  become: yes
+
+- name: Install jenkins
+  yum:
+    name: jenkins
+    state: present
+  become: yes
+
+- name: Start jenkins
+  service:
+    name: jenkins
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Register var of jenkins initialAdminPassword
+  shell:
+    cmd: cat /var/lib/jenkins/secrets/initialAdminPassword
+  register: initialAdminPassword_result
+  ignore_errors: yes
+  become: yes
+
+- name: Print initialAdminPassword
+  debug:
+    msg: init password is {{ initialAdminPassword_result }}
+  when: initialAdminPassword_result is defined

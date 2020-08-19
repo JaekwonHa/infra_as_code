@@ -1,0 +1,20 @@
+---
+
+- name: Update Yum Packages
+  yum:
+    name: '*'
+    state: latest
+  become: yes
+
+- name: Install packages
+  yum:
+    name:
+      - net-tools
+      - vim
+      - git
+      - wget
+      - python3-pip
+      - python3
+      - python3-setuptools
+    state: present
+  become: yes

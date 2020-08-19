@@ -6,6 +6,10 @@
     dest: /etc/yum.repos.d/jenkins.repo
   become: yes
 
+- name: Set jenkins repository
+  shell: 'rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key'
+  become: yes
+
 - name: Install jenkins
   yum:
     name: jenkins
